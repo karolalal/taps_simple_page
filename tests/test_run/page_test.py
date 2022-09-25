@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
+from tests.page_object import main_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -11,3 +12,8 @@ class Tests(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
+    def test1_main_page_content_visible(self):
+        self.assertTrue(main_page.content_visible(self.driver))
+
+
