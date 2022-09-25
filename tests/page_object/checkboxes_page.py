@@ -24,3 +24,4 @@ def click_checkboxes(driver_instance):
 
 
 
+
