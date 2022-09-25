@@ -2,6 +2,7 @@ import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
 from tests.page_object import main_page
+from tests.page_object import checkboxes_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -16,4 +17,7 @@ class Tests(unittest.TestCase):
     def test1_main_page_content_visible(self):
         self.assertTrue(main_page.content_visible(self.driver))
 
-
+    def test2_checkboxes(self):
+        checkboxes_page.click_checkboxes_tab(self.driver)
+        self.assertTrue(checkboxes_page.checkboxes_visible(self.driver))
+        checkboxes_page.click_checkboxes(self.driver)
