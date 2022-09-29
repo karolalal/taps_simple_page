@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_object import main_page, checkboxes_page, hovers_page, users_page
+from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -26,3 +26,17 @@ class Tests(unittest.TestCase):
         self.assertTrue(hovers_page.hover_content_displayed(self.driver))
         hovers_page.hover_over_element_and_clicked(self.driver)
         self.assertTrue(users_page.error_info_displayed(self.driver))
+
+    def test4_inputs_visibility(self):
+        inputs_page.click_inputs_tab(self.driver)
+        self.assertTrue(inputs_page.input_content_visible(self.driver))
+
+    def test5_inputs_correct_input(self):
+        inputs_page.click_inputs_tab(self.driver)
+        self.assertTrue(inputs_page.send_correct_keys_to_input(self.driver))
+
+    def test6_inputs_incorrect_input(self):
+        inputs_page.click_inputs_tab(self.driver)
+        self.assertTrue(inputs_page.send_incorrect_keys_to_input(self.driver))
+
+
