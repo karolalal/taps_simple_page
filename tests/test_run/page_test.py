@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page
+from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -39,4 +39,7 @@ class Tests(unittest.TestCase):
         inputs_page.click_inputs_tab(self.driver)
         self.assertTrue(inputs_page.send_incorrect_keys_to_input(self.driver))
 
-
+    def test7_dropdown_select(self):
+        dropdown_page.click_dropdown_tab(self.driver)
+        self.assertTrue(dropdown_page.dropdown_content_visible(self.driver))
+        dropdown_page.get_first_dropdown_value(self.driver)
