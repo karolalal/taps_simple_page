@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page
+from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -43,3 +43,18 @@ class Tests(unittest.TestCase):
         dropdown_page.click_dropdown_tab(self.driver)
         self.assertTrue(dropdown_page.dropdown_content_visible(self.driver))
         dropdown_page.get_first_dropdown_value(self.driver)
+
+    def test8_add_element(self):
+        add_remove_page.click_add_remove_tab(self.driver)
+        self.assertTrue(add_remove_page.add_remove_content_visible(self.driver))
+        add_remove_page.add_element(self.driver)
+
+    def test9_delete_element(self):
+        add_remove_page.click_add_remove_tab(self.driver)
+        self.assertTrue(add_remove_page.add_remove_content_visible(self.driver))
+        add_remove_page.add_element(self.driver)
+        add_remove_page.delete_element(self.driver)
+        self.assertTrue(add_remove_page.element_invisible(self.driver))
+
+if __name__ == '__main__':
+    unittest.main()
