@@ -1,5 +1,5 @@
 from tests.helpers.support_functions import *
-from time import sleep
+
 
 input_tab = 'inputs-header'
 input_content = 'inputs-content'

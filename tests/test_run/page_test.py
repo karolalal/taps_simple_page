@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page
+from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page, data_picker_page
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -55,6 +55,18 @@ class Tests(unittest.TestCase):
         add_remove_page.add_element(self.driver)
         add_remove_page.delete_element(self.driver)
         self.assertTrue(add_remove_page.element_invisible(self.driver))
+
+    def test10_data_picker_visibility(self):
+        data_picker_page.click_date_picker_tab(self.driver)
+        self.assertTrue(data_picker_page.date_picker_content_visible(self.driver))
+
+    def test11_data_picker_correct_value(self):
+        data_picker_page.click_date_picker_tab(self.driver)
+        self.assertTrue(data_picker_page.send_correct_keys_to_input(self.driver))
+
+    def test12_data_picker_incorrect_value(self):
+        data_picker_page.click_date_picker_tab(self.driver)
+        self.assertTrue(data_picker_page.send_incorrect_keys_to_input(self.driver))
 
 if __name__ == '__main__':
     unittest.main()

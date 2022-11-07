@@ -1,5 +1,6 @@
 from tests.helpers.support_functions import *
 
+
 checkbox_tab = 'checkbox-header'
 all_checkboxes = 'checkboxes'
 checkbox_1 = '//*[@id="checkboxes"]/input[1]'
