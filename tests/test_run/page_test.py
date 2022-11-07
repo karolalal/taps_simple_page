@@ -1,7 +1,10 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page, data_picker_page
+from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
+    add_remove_page, data_picker_page, basic_auth_page
+from time import sleep
+
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -67,6 +70,27 @@ class Tests(unittest.TestCase):
     def test12_data_picker_incorrect_value(self):
         data_picker_page.click_date_picker_tab(self.driver)
         self.assertTrue(data_picker_page.send_incorrect_keys_to_input(self.driver))
+
+    def test13_basic_auth_correct(self):
+        basic_auth_page.click_auth_tab(self.driver)
+        self.assertTrue(basic_auth_page.send_correct_data(self.driver))
+        self.assertTrue(users_page.logged_in_message_displayed(self.driver))
+
+    def test14_basic_auth_incorrect(self):
+        basic_auth_page.click_auth_tab(self.driver)
+        self.assertTrue(basic_auth_page.send_incorrect_data(self.driver))
+        self.assertTrue(basic_auth_page.message_visible(self.driver))
+
+    def test15_basic_auth_correct_with_return(self):
+        basic_auth_page.click_auth_tab(self.driver)
+        self.assertTrue(basic_auth_page.send_correct_data(self.driver))
+        self.assertTrue(users_page.logged_in_message_displayed(self.driver))
+        users_page.return_main_page(self.driver)
+        self.assertTrue(main_page.content_visible(self.driver))
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

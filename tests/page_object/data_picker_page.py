@@ -17,6 +17,7 @@ def date_picker_content_visible(driver_instance):
 def send_correct_keys_to_input(driver_instance):
     wait_for_visibility_of_element_xpatch(driver_instance, date_picker_calendar)
     elem = driver_instance.find_element(By.XPATH, date_picker_calendar)
+    #elem.send_keys('2020-12-21')
     elem.send_keys('21.08.2020')
     value = '2020-12-21'
     if value == elem.get_attribute('value'):
