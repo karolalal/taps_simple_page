@@ -103,7 +103,6 @@ class Tests(unittest.TestCase):
     def test18_form_incorrect(self):
         form_page.click_form_tab(self.driver)
         self.assertTrue(form_page.form_content_visible(self.driver))
-        sleep(1)
         self.assertTrue(form_page.send_incorrect_data(self.driver))
 
 

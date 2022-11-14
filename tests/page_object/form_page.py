@@ -37,6 +37,7 @@ def accept_alert(driver_instance):
 
 
 def send_incorrect_data(driver_instance):
+    wait_for_visibility_of_element_message(driver_instance, l_name)
     last_name = driver_instance.find_element(By.ID, l_name)
     last_name.send_keys('Kowalski')
     driver_instance.find_element(By.ID, submit_button).click()
