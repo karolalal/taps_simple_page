@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
 from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
-    add_remove_page, data_picker_page, basic_auth_page, form_page
+    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page
 from time import sleep
 
 
@@ -104,6 +104,12 @@ class Tests(unittest.TestCase):
         form_page.click_form_tab(self.driver)
         self.assertTrue(form_page.form_content_visible(self.driver))
         self.assertTrue(form_page.send_incorrect_data(self.driver))
+
+    def test19_key_presses_correct_value(self):
+        key_presses_page.click_key_presses_tab(self.driver)
+        self.assertTrue(key_presses_page.key_presses_content_visible(self.driver))
+        self.assertTrue(key_presses_page.key_presses_input(self.driver))
+
 
 
 
