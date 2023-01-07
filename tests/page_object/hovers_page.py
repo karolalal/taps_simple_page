@@ -6,7 +6,7 @@ gentlemans_picture = '//*[@id="hovers-content"]/div/div[1]/img'
 gentleman_link = '//*[@id="hovers-content"]/div/div[1]/div/a'
 
 def click_hovers_tab(driver_instance):
-    wait_for_visibility_of_element(driver_instance, hovers_content)
+    wait_for_visibility_of_element(driver_instance, hovers_tab)
     elem = driver_instance.find_element(By.ID, hovers_tab)
     elem.click()
 

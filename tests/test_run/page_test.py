@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
 from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
-    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page
+    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page, status_code_page
 from time import sleep
 
 
@@ -115,7 +115,29 @@ class Tests(unittest.TestCase):
         self.assertTrue(drag_and_drop_page.drag_content_visible(self.driver))
         drag_and_drop_page.drag_and_drop_a_to_b(self.driver)
         #self.assertTrue(drag_and_drop_page.drag_and_drop_a_to_b(self.driver))
-        sleep(5)
+
+    def test21_status_code_200(self):
+        status_code_page.click_status_code_tab(self.driver)
+        self.assertTrue(status_code_page.status_code_content_visible(self.driver))
+        self.assertTrue(status_code_page.code_200_click(self.driver))
+
+    def test22_status_code_305(self):
+        status_code_page.click_status_code_tab(self.driver)
+        self.assertTrue(status_code_page.status_code_content_visible(self.driver))
+        self.assertTrue(status_code_page.code_305_click(self.driver))
+
+    def test23_status_code_404(self):
+        status_code_page.click_status_code_tab(self.driver)
+        self.assertTrue(status_code_page.status_code_content_visible(self.driver))
+        self.assertTrue(status_code_page.code_404_click(self.driver))
+
+    def test24_status_code_500(self):
+        status_code_page.click_status_code_tab(self.driver)
+        self.assertTrue(status_code_page.status_code_content_visible(self.driver))
+        self.assertTrue(status_code_page.code_500_click(self.driver))
+
+
+
 
 
 
