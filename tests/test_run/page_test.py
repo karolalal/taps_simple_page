@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
 from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
-    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page
+    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page
 from time import sleep
 
 
@@ -109,6 +109,13 @@ class Tests(unittest.TestCase):
         key_presses_page.click_key_presses_tab(self.driver)
         self.assertTrue(key_presses_page.key_presses_content_visible(self.driver))
         self.assertTrue(key_presses_page.key_presses_input(self.driver))
+
+    def test20_drag(self):
+        drag_and_drop_page.click_drag_tab(self.driver)
+        self.assertTrue(drag_and_drop_page.drag_content_visible(self.driver))
+        drag_and_drop_page.drag_and_drop_a_to_b(self.driver)
+        #self.assertTrue(drag_and_drop_page.drag_and_drop_a_to_b(self.driver))
+        sleep(5)
 
 
 

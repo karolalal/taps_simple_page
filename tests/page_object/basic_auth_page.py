@@ -1,5 +1,4 @@
 from tests.helpers.support_functions import *
-from time import sleep
 
 auth_header = 'basicauth-header'
 auth_content = 'basicauth-content'
