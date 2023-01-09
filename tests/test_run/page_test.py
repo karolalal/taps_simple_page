@@ -2,7 +2,8 @@ import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
 from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
-    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page, status_code_page
+    add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page, \
+    status_code_page, iFrame_page
 from time import sleep
 
 
@@ -93,7 +94,6 @@ class Tests(unittest.TestCase):
         self.assertTrue(form_page.form_content_visible(self.driver))
         self.assertTrue(form_page.send_correct_data(self.driver))
 
-
     def test17_form_correct_accept_alert(self):
         form_page.click_form_tab(self.driver)
         self.assertTrue(form_page.form_content_visible(self.driver))
@@ -114,7 +114,7 @@ class Tests(unittest.TestCase):
         drag_and_drop_page.click_drag_tab(self.driver)
         self.assertTrue(drag_and_drop_page.drag_content_visible(self.driver))
         drag_and_drop_page.drag_and_drop_a_to_b(self.driver)
-        #self.assertTrue(drag_and_drop_page.drag_and_drop_a_to_b(self.driver))
+        # self.assertTrue(drag_and_drop_page.drag_and_drop_a_to_b(self.driver))
 
     def test21_status_code_200(self):
         status_code_page.click_status_code_tab(self.driver)
@@ -136,14 +136,15 @@ class Tests(unittest.TestCase):
         self.assertTrue(status_code_page.status_code_content_visible(self.driver))
         self.assertTrue(status_code_page.code_500_click(self.driver))
 
+    def test25_iframe_click_button1(self):
+        iFrame_page.click_iframe_tab(self.driver)
+        self.assertTrue(iFrame_page.hover_content_displayed(self.driver))
+        self.assertTrue(iFrame_page.click_button1_inside_iframe(self.driver))
 
-
-
-
-
-
-
-
+    def test26_iframe_click_button2(self):
+        iFrame_page.click_iframe_tab(self.driver)
+        self.assertTrue(iFrame_page.hover_content_displayed(self.driver))
+        self.assertTrue(iFrame_page.click_button2_inside_iframe(self.driver))
 
 
 if __name__ == '__main__':
