@@ -1,6 +1,5 @@
 from selenium.webdriver import Keys
 from tests.helpers.support_functions import *
-from time import sleep
 
 key_presses_tab = 'keypresses-header'
 key_press_content = 'keypresses-content'

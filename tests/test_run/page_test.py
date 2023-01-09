@@ -4,7 +4,6 @@ from config.test_settings import TestSettings
 from tests.page_object import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
     add_remove_page, data_picker_page, basic_auth_page, form_page, key_presses_page, drag_and_drop_page, \
     status_code_page, iFrame_page
-from time import sleep
 
 
 class Tests(unittest.TestCase):
@@ -67,6 +66,7 @@ class Tests(unittest.TestCase):
     def test11_data_picker_correct_value(self):
         data_picker_page.click_date_picker_tab(self.driver)
         self.assertTrue(data_picker_page.send_correct_keys_to_input(self.driver))
+        sleep(4)
 
     def test12_data_picker_incorrect_value(self):
         data_picker_page.click_date_picker_tab(self.driver)
