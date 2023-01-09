@@ -110,11 +110,10 @@ class Tests(unittest.TestCase):
         self.assertTrue(key_presses_page.key_presses_content_visible(self.driver))
         self.assertTrue(key_presses_page.key_presses_input(self.driver))
 
-    def test20_drag(self):
+    def test20_drag_and_drop(self):
         drag_and_drop_page.click_drag_tab(self.driver)
         self.assertTrue(drag_and_drop_page.drag_content_visible(self.driver))
-        drag_and_drop_page.drag_and_drop_a_to_b(self.driver)
-        # self.assertTrue(drag_and_drop_page.drag_and_drop_a_to_b(self.driver))
+        self.assertTrue(drag_and_drop_page.check_drag_and_drop(self.driver))
 
     def test21_status_code_200(self):
         status_code_page.click_status_code_tab(self.driver)
