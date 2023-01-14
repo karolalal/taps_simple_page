@@ -66,7 +66,10 @@ class Tests(unittest.TestCase):
     def test11_data_picker_correct_value(self):
         data_picker_page.click_date_picker_tab(self.driver)
         self.assertTrue(data_picker_page.send_correct_keys_to_input(self.driver))
-        sleep(4)
+
+    def test11a_data_picker_outofscope(self):
+        data_picker_page.click_date_picker_tab(self.driver)
+        self.assertTrue(data_picker_page.send_outofscope_keys_to_input(self.driver))
 
     def test12_data_picker_incorrect_value(self):
         data_picker_page.click_date_picker_tab(self.driver)
